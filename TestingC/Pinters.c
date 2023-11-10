@@ -1,14 +1,14 @@
 #include<stdio.h>
 #include<stdlib.h>
 int main(){
-    // Just practicing pointer
+    // // Just practicing pointer
     // int a = 10;
     // int *p;
-    // Hete it is nessesory to use '&' to stire the memory address od a single int value (*****)
+    // // Hete it is nessesory to use '&' to stire the memory address od a single int value (*****)
     // p = &a;
  
-    // printf("address of a by a is %p\n", &a);
-    // printf("address of a by ponter is %p",p);
+    // printf("address of a by a is %d\n", a);
+    // printf("address of a by ponter is %d",*p);
     // End---------
     // To create memory in heap 
 
@@ -39,17 +39,17 @@ int main(){
 
     // Assiging an array addres to pointer
 
-    int array[5] = {1,2,3,4,5};
-    int *p;
-    // here while assiging a array to pointer just assiging array is enough no need to use '&' in case of assigning constant (if not understood please compare with above comment *****)
-    p = array;
+    // int array[5] = {1,2,3,4,5};
+    // int *p;
+    // // here while assiging a array to pointer just assiging array is enough no need to use '&' in case of assigning constant (if not understood please compare with above comment *****)
+    // p = array;
 
-    for(int i = 0; i < sizeof(array)/sizeof(int); i++){
-        printf("%d",p[i]);
-        if (i != sizeof(array)/sizeof(int) - 1){
-            printf(",");
-        }
-    }
+    // for(int i = 0; i < sizeof(array)/sizeof(int); i++){
+    //     printf("%d",p[i]);
+    //     if (i != sizeof(array)/sizeof(int) - 1){
+    //         printf(",");
+    //     }
+    // }
     
 
     return 0;
