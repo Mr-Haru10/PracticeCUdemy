@@ -90,7 +90,6 @@
 // justPrintArr(arr,sizeof(arr)/sizeof(arr[0]));
 // rearrangeTheArray(arr,sizeof(arr)/sizeof(arr[0]));
 // justPrintArr(arr,sizeof(arr)/sizeof(arr[0]));
-
 //     return 0;
 // }
 
