@@ -5,36 +5,46 @@ struct LinkedListIs
 {
     int dataIs;
     struct LinkedListIs *nextIs;
-}*list01;
+}*list01=NULL;
 
 
-void createTheLinkedList(struct LinkedListIs *poi, int arrayIs[],int size){
-    struct LinkedListIs *inter, *last;
-    inter=last=NULL;
+void createTheLinkedList( int arrayIs[],int size){
+    if (size!=0){
+        struct LinkedListIs *inter, *last;
+        inter=last=NULL;
 
-    poi->dataIs = arrayIs[0];
-    poi->nextIs = NULL;
-    last = poi;
+        list01->dataIs = arrayIs[0];
+        list01->nextIs = NULL;
+        last = list01;
 
-    for (int i = 1; i < size; i++)
-    {
-        inter = (struct LinkedListIs *)malloc(sizeof(struct LinkedListIs));
-        inter->dataIs = arrayIs[i];
-        inter->nextIs = NULL;
-        last->nextIs = inter;
-        last = inter;
+        for (int i = 1; i < size; i++)
+        {
+            inter = (struct LinkedListIs *)malloc(sizeof(struct LinkedListIs));
+            inter->dataIs = arrayIs[i];
+            inter->nextIs = NULL;
+            last->nextIs = inter;
+            last = inter;
+        }
+    
+    }else{
+        list01 = NULL;
     }
     
 
 }
 
 void displayTheLinkedList(struct LinkedListIs *list){
-    printf("\nLinked list is: ");
-    while (list!=NULL)
-    {
-        printf("%d ",list->dataIs);
-        list=list->nextIs;
+    int countIs = 0;
+    if (list!=NULL){
+        printf("\nLinked list is: ");
+        while (list!=NULL)
+        {
+            printf("%d ",list->dataIs);
+            countIs++;
+            list=list->nextIs;
+        }
     }
+    printf("\nlinked list count is: %d",countIs);
 }
 
 int findTheNum(struct LinkedListIs *list,int key){
@@ -56,7 +66,7 @@ int findTheNum(struct LinkedListIs *list,int key){
     return -987;
 }
 
-void insertElementsAt(int position,int x,struct LinkedListIs *list){
+void insertElementsAt(int position,int x,struct LinkedListIs **list){
 
     struct LinkedListIs *temp;
     temp = (struct LinkedListIs *)malloc(sizeof(struct LinkedListIs));
@@ -67,24 +77,27 @@ void insertElementsAt(int position,int x,struct LinkedListIs *list){
     }else{
         for (int i = 0; i < position-1; i++)
         {
-            list = list->nextIs;
+            (*list) = (*list)->nextIs;
         }
-        temp->nextIs = list->nextIs;
-        list->nextIs = temp;
+        temp->nextIs = (*list)->nextIs;
+        (*list)->nextIs = temp;
     }
 }
 
 int main(){
-    int arr[]={6,3,5,8,9,14,66,32,0,4};
+    int arr[]={1,2,3,4,5};
     list01 = (struct LinkedListIs *)malloc(sizeof(struct LinkedListIs));
-    createTheLinkedList(list01,arr,sizeof(arr)/sizeof(arr[0]));
-    displayTheLinkedList(list01);
-    int num = findTheNum(list01,66);
-    printf("\nFOund num is: %d",num);
+    createTheLinkedList(arr,sizeof(arr)/sizeof(int));
     displayTheLinkedList(list01);
 
-    printf("\ninserting the element");
-    insertElementsAt(10,100,list01);
-    displayTheLinkedList(list01);
+    
+    printf("\ninserting element");
+    insertElementsAt(2,8989,&list01);
+    
+    
+    
+
+    free(list01);
+
     return 0;
 }

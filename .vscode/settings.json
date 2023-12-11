@@ -11,6 +11,7 @@
         "unordered_map": "c",
         "vector": "c",
         "__bit_reference": "c",
-        "chrono": "c"
+        "chrono": "c",
+        "stdio.h": "c"
     }
 }
