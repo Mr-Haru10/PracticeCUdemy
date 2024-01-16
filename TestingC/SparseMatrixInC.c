@@ -19,7 +19,7 @@ void create(struct Sparse *s){
     printf("Number of non-zero");
     scanf("%d",&s->num);
 
-    s->ele=(struct Element *)malloc(s->num*sizeof(structElement));
+    s->ele=(struct Element *)malloc(s->num*sizeof(struct Element));
     printf("Eneter non-zero Elements");
     for(i=0;i<s->num;i++)
     scanf("%d%d%d",&s->ele[i].i,&s->ele[i].j,&s->ele[i].x);

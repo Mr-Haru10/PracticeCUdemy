@@ -8,6 +8,20 @@ struct List{
 };
 
 
+
+int checkLoop(struct List **ptr){
+    struct List *i,*j;
+    i=j=(*ptr);
+
+    do{
+        i = i->next;
+        j = j->next;
+        j = j ? j->next : j;
+    } while (i && j && i!=j);
+    
+    return i==j ? 1 : 0;
+}
+
 void addedTwoLinkedlist(struct List **p1,struct List **p2){
     struct List *ptr1,*ptr2=NULL;
     ptr1 = (*p1);
@@ -220,7 +234,9 @@ int main(){
     reversTheLinkedlist(&sortedDeletePointer);
     printLinkedList(sortedDeletePointer);
     printf("adding two linked list");
-    addedTwoLinkedlist(&stortedLastPtr,&sortedDeletePointer);
-    printLinkedList(stortedLastPtr);
+    addedTwoLinkedlist(&stortedPtr,&sortedDeletePointer);
+    printLinkedList(stortedPtr);
+    
+    
     return 0;
 }
